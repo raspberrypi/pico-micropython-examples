@@ -1,6 +1,6 @@
 # MicroPython Examples
 
-Examples to accompany the "Pico Python SDK" book.
+Examples to accompany the "Raspberry Pi Pico Python SDK" book.
 
 ## Contributions
 
