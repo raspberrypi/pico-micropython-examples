@@ -1,6 +1,6 @@
 # MicroPython Examples
 
-Examples to accompany the "[Raspberry Pi Pico Python SDK](https://datasheets.raspberrypi.org/pico/raspberry-pi-pico-python-sdk.pdf)" book which forms part of the technical documentation published by Raspberry Pi Trading
+Examples to accompany the "[Raspberry Pi Pico Python SDK](https://datasheets.raspberrypi.org/pico/raspberry-pi-pico-python-sdk.pdf)" book published by Raspberry Pi Trading, which forms part of the technical documentation in support of Raspberry Pi Pico and the MicroPython port to RP2040.
 
 ## Contributions
 
