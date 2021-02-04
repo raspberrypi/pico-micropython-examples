@@ -1,10 +1,10 @@
 import time
-from rp2 import PIO, asm_pio
+import rp2
 from machine import Pin
 
 # Define the blink program.  It has one GPIO to bind to on the set instruction, which is an output pin.
 # Use lots of delays to make the blinking visible by eye.
-@asm_pio(set_init=rp2.PIO.OUT_LOW)
+@rp2.asm_pio(set_init=rp2.PIO.OUT_LOW)
 def blink():
     wrap_target()
     set(pins, 1)   [31]
