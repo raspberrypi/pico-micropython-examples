@@ -8,9 +8,7 @@ Send data from the UART1 port to the UART0 port. Other things to try;
 uart0 = UART(0)
 ----
 
-Which will opens a UART connection at the default baudrate of 115200,
-
-and
+Which will opens a UART connection at the default baudrate of 115200, and
 
 [source,python]
 ----
