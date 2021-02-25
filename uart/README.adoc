@@ -1,0 +1,25 @@
+= Using UART on the Raspberry Pi Pico
+:xrefstyle: short
+
+Send data from the UART1 port to the UART0 port. 
+
+== Other code to try
+[source.python]
+uart0 = UART(0) #opens a UART connection at the default baudrate of 115,200
+uart0.readline() #reads until the CR (\r) and NL (\n) characters then returns the line
+
+
+== Wiring information
+
+See <<uart-wiring-diagram>> for wiring instructions.
+
+[[uart-wiring-diagram]]
+[pdfwidth=75%]
+.Wiring two of the Pico's ports together
+image::pico_uart_example.png[]
+
+== List of Files
+
+A list of files with descriptions of their function;
+
+uart.py:: The example code.

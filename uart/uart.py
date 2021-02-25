@@ -1,13 +1,15 @@
 from machine import UART, Pin
+import time
 
-uart1 = UART(1, baudrate=9600, tx=Pin(8), rx=Pin(9), bits=8, parity=None, stop=1)
-uart1.write(b'UART on GPIO8&9 at 9600 baud\n\r')
+uart1 = UART(1, baudrate=9600, tx=Pin(8), rx=Pin(9))
 
-uart0 = UART(0)
-uart0.write(b'UART on GPIO0&1 at 115200 baud\n\r')
+uart0 = UART(0, baudrate=9600, tx=Pin(0), rx=Pin(1))
 
+txData = b'hello world\n\r'
+uart1.write(txData)
+time.sleep(1)
 rxData = bytes()
 while uart0.any() > 0:
-    rxData += uart0.read(1)
-
-print(rxData)
+    rxData += uart0.read()
+    
+print(rxData.decode('utf-8'))
