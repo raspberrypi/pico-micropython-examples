@@ -5,8 +5,9 @@ Send data from the UART1 port to the UART0 port.
 
 == Other code to try
 [source.python]
-uart0 = UART(0) #opens a UART connection at the default baudrate of 115,200
-uart0.readline() #reads until the CR (\r) and NL (\n) characters then returns the line
+uart0 = UART(0)     #opens a UART connection at the default baudrate of 115,200
+
+uart0.readline()    #reads until the CR (\r) and NL (\n) characters then returns the line
 
 
 == Wiring information
