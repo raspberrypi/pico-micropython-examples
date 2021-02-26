@@ -8,14 +8,14 @@ Send data from the UART1 port to the UART0 port. Other things to try;
 uart0 = UART(0)
 ----
 
-Which will opens a UART connection at the default baudrate of 115200, and
+which will open a UART connection at the default baudrate of 115200, and
 
 [source,python]
 ----
-uart0.readline() # <2>
+uart0.readline()
 ----
 
-which will read until the CR (\r) and NL (\n) characters then returns the line.
+which will read until the CR (\r) and NL (\n) characters, then return the line.
 
 == Wiring information
 
@@ -23,7 +23,7 @@ See <<uart-wiring-diagram>> for wiring instructions.
 
 [[uart-wiring-diagram]]
 [pdfwidth=75%]
-.Wiring two of the Pico's ports together. Be sure to wire UART0n TX to UART1 RX and UART0 RX to UART1 TX.
+.Wiring two of the Pico's ports together. Be sure to wire UART0 TX to UART1 RX and UART0 RX to UART1 TX.
 image::pico_uart_example.png[]
 
 == List of Files
@@ -35,7 +35,7 @@ uart.py:: The example code.
 == Bill of Materials
 
 .A list of materials required for the example
-[[ring-bom-table]]
+[[uart-bom-table]]
 [cols=3]
 |===
 | *Item* | *Quantity* | Details
