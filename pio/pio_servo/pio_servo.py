@@ -6,7 +6,7 @@ from time import sleep
 
 @asm_pio()
 def servo_trigger():
-    irq(clear, rel(1))         # Clear next relative ISR, allows servo code to run again
+    irq(clear, rel(1))    # Clear next relative ISR, allows servo code to run again
     mov(y, x)             # Counter is stored in x, copy to y for use
     label("base")
     jmp(y_dec, "base")    # wait for programmed time
@@ -32,7 +32,7 @@ def servo_prog():
         
 class Servo_Trigger:
     '''
-    Run one statemachine in a loop, that clears IRQ4 every 20ms as the
+    Run one statemachine in a loop, that clears IRQ every 20ms as the
     base for the servo statemachine.
     '''
     def __init__(self, sm_idx):
@@ -41,7 +41,7 @@ class Servo_Trigger:
         
         trig_frq = 10_000 #Hz
         sm_trig = StateMachine(sm_idx, servo_trigger, freq=trig_frq)
-        trig_ctr = (trig_frq // 1000 * trig_target) - 3 # 3 instructions to have perfect 20ms on IRQ4
+        trig_ctr = (trig_frq // 1000 * trig_target) - 3 # 3 instructions to have perfect 20ms on IRQ
 
         sm_trig.put(trig_ctr)
         sm_trig.exec("pull()")
@@ -51,8 +51,8 @@ class Servo_Trigger:
 class Servo:
     '''
     Accepts the servo setpoint via FIFO input.
-    It raises and waits for IRQ4 after the positive part of the pulse has been output.
-    The other statemachine should clear IRQ4 every 20ms so that a new pulse is output cyclically.
+    It raises and waits for IRQ after the positive part of the pulse has been output.
+    The other statemachine should clear IRQ every 20ms so that a new pulse is output cyclically.
     
     Preload the ISR with the base duration (fixed pulse length for position 0°)
     Send position data via FIFO into the OSR (variable pulse length for 0°..max)
