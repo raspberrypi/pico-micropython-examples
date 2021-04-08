@@ -82,7 +82,7 @@ s = Servo(1, 16) # phys IO on pin 16
 trig2 = Servo_Trigger(2)
 s2 = Servo(3, 25) # Builtin LED
 
-for _ in range(2):
+while True:
     for p in range(10+1):
         s.pos(p/10)
         sleep(0.5)
