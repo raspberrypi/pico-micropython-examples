@@ -1,7 +1,7 @@
-= Using PIO to drive a servo motor
+= Using PIO to drive servo outputs
 :xrefstyle: short
 
-Drive a servo motor by using two PIO statemachines for pulse output.
+Drive two servo motors by using two PIO statemachines for pulse output.
 
 == Concept
 
@@ -27,16 +27,8 @@ After the pulse has been output, Statemachine 2 waits for Statemachine 1 to clea
 
 == PIO Use
 
-Each output needs a statemachine running servo_trigger and one running servo_prog.
-Due to the IRQ assignments, the statemachines need to be in ordered to have the servo_trigger program first, e.g.:
-
-```
-trig = Servo_Trigger(0)                 # Statemachine 0
-s = Servo(1, 16) # phys IO on pin 16    # Statemachine 1, since the trigger is on SM0
-
-trig2 = Servo_Trigger(2)                # Statemachine 2
-s2 = Servo(3, 25) # Builtin LED         # Statemachine 3, since the trigger is on SM2
-```
+There needs to be one ServoTrigger Statemachine running.
+This Statemachine can trigger up to 3 other Servo Statemachines on the same pio instance.
 
 == Wiring information
 
@@ -62,5 +54,5 @@ pio_servo.py:: The example code, driving one servo
 | *Item* | *Quantity* | Details
 | Breadboard | 1 | generic part
 | Raspberry Pi Pico | 1 | http://raspberrypi.org/
-| Servo | 1 | generic part
+| Servo | 2 | generic part
 |===
