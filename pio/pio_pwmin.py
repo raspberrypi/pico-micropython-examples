@@ -12,7 +12,7 @@ def pwmin():
     pull(block)           # wait for activation
     
     set(x, 0)               # Set x = 0
-    mov(x, x | (0b01 << 3)) # invert x = Max-Value for 32 bits. (0b01 << 3) sets the invert bit.
+    mov(x, invert(x))       # invert x = Max-Value for 32 bits
     
     wait(1, pin, 0)         # wait for a full PWM cycle to start measurement
     wait(0, pin, 0)         # wait for pin to be low
@@ -32,7 +32,7 @@ def pwmin():
     
     mov(isr, x)             # move x into ISR
     push(noblock)           # push into fifo
-    irq(0)
+    irq(0)                  # Signal IRQ (optional, may be used for 0%/100% detection
 
 base_frq = 100_000_000
 sm = rp2.StateMachine(0, pwmin, freq=base_frq, jmp_pin=Pin(16), in_base=Pin(16))
