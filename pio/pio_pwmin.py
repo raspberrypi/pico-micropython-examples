@@ -12,7 +12,7 @@ def pwmin():
     pull(block)           # wait for activation
     
     set(x, 0)               # Set x = 0
-    mov(x, x | (0b01 << 3)) # invert x = Max-Value for 32 bits
+    mov(x, x | (0b01 << 3)) # invert x = Max-Value for 32 bits. (0b01 << 3) sets the invert bit.
     
     wait(1, pin, 0)         # wait for a full PWM cycle to start measurement
     wait(0, pin, 0)         # wait for pin to be low
