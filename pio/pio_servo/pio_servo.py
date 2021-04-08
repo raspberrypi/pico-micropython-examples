@@ -30,7 +30,7 @@ def servo_prog():
     
     wrap()
         
-class Servo_Trigger:
+class ServoTrigger:
     '''
     Run one statemachine in a loop, that clears IRQ every 20ms as the
     base for the servo statemachine.
