@@ -9,30 +9,28 @@ pwm_out.duty_u16((2**16-1)//2)
 
 @asm_pio()
 def pwmin():
-    pull(block)           # wait for activation
-    
-    set(x, 0)               # Set x = 0
-    mov(x, invert(x))       # invert x = Max-Value for 32 bits
+    pull(block)             # wait for activation by doing a blocking pull on the input
+    mov(x, invert(null))    # invert(null) = Max. 32 Bit value
     
     wait(1, pin, 0)         # wait for a full PWM cycle to start measurement
     wait(0, pin, 0)         # wait for pin to be low
     
     label("count_low")          
-    jmp(pin, "out_low")         # jump to output if pin is high
-    jmp(x_dec, "count_low")     # jump back to count loop, decrement X
+    jmp(pin, "out_low")     # jump to output if pin is high
+    jmp(x_dec, "count_low") # jump back to count loop, decrement X
     label("out_low")
     
-    mov(isr, x)             # move x into ISR
-    push(noblock)             # push into fifo
+    mov(isr, x)             # move x into ISR for outputting low counter of PWM signal
+    push(noblock)           # push into fifo
     
     label("count_high")
     jmp(x_dec, "next")      # count down X, jump to next instruction
     label("next")
     jmp(pin, "count_high")  # as long as the pin is high, jump back up to continue countdown
     
-    mov(isr, x)             # move x into ISR
+    mov(isr, x)             # move x into ISR for outputting the total period of the signal
     push(noblock)           # push into fifo
-    irq(0)                  # Signal IRQ (optional, may be used for 0%/100% detection
+    irq(0)
 
 base_frq = 100_000_000
 sm = rp2.StateMachine(0, pwmin, freq=base_frq, jmp_pin=Pin(16), in_base=Pin(16))
