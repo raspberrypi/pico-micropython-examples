@@ -90,6 +90,9 @@ for f in [100, 200, 500,
         else:
             print("{} Hz / {} duty OUTSIDE LIMITS ---------".format(f, d))
             
+        print("\t{:.2f} Hz / {:.2f} duty cycle measured".format(read["freq"], read["duty"]))
+            
         print("\tDiff: {:.2f} Hz".format(diff_freq))
         print("\tDiff: {:.2%} of freq".format(abs(1.0-read["freq"]/f)))
-        print("\tDiff: {:.5f} duty cycle".format(diff_duty))
+        print("\tDiff: {:.2%} duty cycle".format(diff_duty))
+        print("")
