@@ -76,11 +76,11 @@ class Servo:
         self.sm.put(int(self.free_pulse*n))
 
 # Trigger needs to be the sm before the servo, so the IRQs set by rel(n) match
-trig = Servo_Trigger(2)
-s = Servo(3, 16) # phys IO on pin 16
+trig = Servo_Trigger(0)
+s = Servo(1, 16) # phys IO on pin 16
 
-trig2 = Servo_Trigger(0)
-s2 = Servo(1, 25) # Builtin LED
+trig2 = Servo_Trigger(2)
+s2 = Servo(3, 25) # Builtin LED
 
 for _ in range(2):
     for p in range(10+1):
