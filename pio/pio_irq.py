@@ -19,7 +19,7 @@ def irq_test():
 
 rp2.PIO(0).irq(lambda pio: print(pio.irq().flags()))
 
-sm = rp2.StateMachine(0, irq_test, freq=1000)
+sm = rp2.StateMachine(0, irq_test, freq=2000)
 sm.active(1)
 time.sleep(1)
 sm.active(0)
