@@ -27,6 +27,6 @@ i2c_1306oled_with_freq.py:: The example code, explicitly sets a frequency.
 |===
 | *Item* | *Quantity* | Details
 | Breadboard | 1 | generic part
-| Raspberry Pi Pico | 1 | http://raspberrypi.org/
+| Raspberry Pi Pico | 1 | https://www.raspberrypi.com/products/raspberry-pi-pico/
 | Monochrome 128x32 I2C OLED Display | 1 | https://www.adafruit.com/product/931
 |===

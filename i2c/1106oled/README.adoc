@@ -30,6 +30,6 @@ sh1106.py:: SH1106 Driver Obtained from https://github.com/robert-hh/SH1106
 |===
 | *Item* | *Quantity* | Details
 | Breadboard | 1 | generic part
-| Raspberry Pi Pico | 1 | http://raspberrypi.org/
+| Raspberry Pi Pico | 1 | https://www.raspberrypi.com/products/raspberry-pi-pico/
 | Monochrome 128x128 I2C OLED Display | 1 | https://shop.pimoroni.com/products/1-12-oled-breakout?variant=29421050757203
 |===
