@@ -2,7 +2,7 @@ from machine import Pin, Timer
 
 led = Pin("LED", Pin.OUT)
 tim = Timer()
-def tick(timer):
+def tick(tim):
     global led
     led.toggle()
 
