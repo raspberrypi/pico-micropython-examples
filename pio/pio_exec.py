@@ -14,8 +14,8 @@ def prog():
     pass
 
 
-# Construct the StateMachine, binding Pin(25) to the set pin.
-sm = rp2.StateMachine(0, prog, set_base=Pin(25))
+# Construct the StateMachine, binding LED to the set pin.
+sm = rp2.StateMachine(0, prog, set_base=Pin("LED"))
 
 # Turn on the set pin via an exec instruction.
 sm.exec("set(pins, 1)")
