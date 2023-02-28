@@ -1,7 +1,7 @@
 import time, _thread, machine
 
 def task(n, delay):
-    led = machine.Pin(25, machine.Pin.OUT)
+    led = machine.Pin("LED", machine.Pin.OUT)
     for i in range(n):
         led.high()
         time.sleep(delay)
