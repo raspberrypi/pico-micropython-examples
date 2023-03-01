@@ -34,7 +34,7 @@ class PIOPWM:
         self._sm.put(value)
 
 
-# Pin 25 is LED on Pico boards
+# Pin 25 on Pico boards
 pwm = PIOPWM(0, 25, max_count=(1 << 16) - 1, count_freq=10_000_000)
 
 while True:
