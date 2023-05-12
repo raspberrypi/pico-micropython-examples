@@ -4,7 +4,7 @@ import time
 
 from machine import Pin
 
-led = Pin(15, Pin.OUT)
+led = Pin("LED", Pin.OUT)
 
 ssid = 'YOUR NETWORK NAME'
 password = 'YOUR NETWORK PASSWORD'
