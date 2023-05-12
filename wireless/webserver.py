@@ -50,31 +50,34 @@ while True:
     try:
         cl, addr = s.accept()
         print('client connected from', addr)
-        request = cl.recv(1024)
+        request = cl.recv(1024).decode()
         print(request)
 
-        request = str(request)
-        led_on = request.find('/light/on')
-        led_off = request.find('/light/off')
+        led_on = '/light/on' in request
+        led_off = '/light/off' in request
         print( 'led on = ' + str(led_on))
         print( 'led off = ' + str(led_off))
 
-        if led_on == 6:
+        if led_on:
             print("led on")
-            led.value(1)
-            stateis = "LED is ON"
+            led.on()
+            text = "LED is ON"
 
-        if led_off == 6:
+        elif led_off:
             print("led off")
-            led.value(0)
-            stateis = "LED is OFF"
+            led.off()
+            text = "LED is OFF"
 
-        response = html % stateis
+        else:
+            print("no LED command")
+            text = "Access the /light/on and /light/off pages to control the LED!"
+
+        response = html % text
 
         cl.send('HTTP/1.0 200 OK\r\nContent-type: text/html\r\n\r\n')
         cl.send(response)
         cl.close()
 
-    except OSError as e:
+    except OSError:
         cl.close()
         print('connection closed')
