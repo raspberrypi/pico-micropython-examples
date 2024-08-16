@@ -57,7 +57,7 @@ def color_chase(color, wait):
         time.sleep(wait)
         pixels_show()
     time.sleep(0.2)
- 
+
 def wheel(pos):
     # Input a value 0 to 255 to get a color value.
     # The colours are a transition r - g - b - back to r.
@@ -70,8 +70,7 @@ def wheel(pos):
         return (0, 255 - pos * 3, pos * 3)
     pos -= 170
     return (pos * 3, 0, 255 - pos * 3)
- 
- 
+
 def rainbow_cycle(wait):
     for j in range(255):
         for i in range(NUM_LEDS):
@@ -91,13 +90,13 @@ WHITE = (255, 255, 255)
 COLORS = (BLACK, RED, YELLOW, GREEN, CYAN, BLUE, PURPLE, WHITE)
 
 print("fills")
-for color in COLORS:       
+for color in COLORS:
     pixels_fill(color)
     pixels_show()
     time.sleep(0.2)
 
 print("chases")
-for color in COLORS:       
+for color in COLORS:
     color_chase(color, 0.01)
 
 print("rainbow")

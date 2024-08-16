@@ -1,4 +1,4 @@
- # Display Image & text on I2C driven ssd1306 OLED display 
+# Display Image & text on I2C driven ssd1306 OLED display
 from machine import Pin, I2C
 from ssd1306 import SSD1306_I2C
 import framebuf

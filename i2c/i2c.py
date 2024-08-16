@@ -1,6 +1,6 @@
 from machine import Pin, I2C
 
-i2c = I2C(0, scl=Pin(9), sda=Pin(8), freq=100000) 
+i2c = I2C(0, scl=Pin(9), sda=Pin(8), freq=100000)
 i2c.scan()
 i2c.writeto(76, b'123')
 i2c.readfrom(76, 4)
