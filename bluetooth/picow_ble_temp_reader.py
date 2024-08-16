@@ -221,7 +221,7 @@ class BLETemperatureCentral:
 def sleep_ms_flash_led(self, flash_count, delay_ms):
     self._led.off()
     while(delay_ms > 0):
-        for i in range(flash_count):            
+        for i in range(flash_count):
             self._led.on()
             time.sleep_ms(100)
             self._led.off()

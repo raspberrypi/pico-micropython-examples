@@ -1,8 +1,7 @@
- # Display Image & text on I2C driven SH1106 OLED display 
+# Display Image & text on I2C driven SH1106 OLED display
 from machine import I2C, ADC
 from sh1106 import SH1106_I2C
 import framebuf
-
 
 WIDTH  = 128                                            # oled display width
 HEIGHT = 128                                            # oled display height
