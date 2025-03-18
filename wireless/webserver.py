@@ -18,6 +18,9 @@ html = """<!DOCTYPE html>
     <head> <title>Pico W</title> </head>
     <body> <h1>Pico W</h1>
         <p>%s</p>
+        <a href="/light/off">Turn off</a>
+        <br>
+        <a href="/light/on">Turn on</a>
     </body>
 </html>
 """
@@ -40,10 +43,12 @@ else:
 addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
 
 s = socket.socket()
+s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 s.bind(addr)
 s.listen(1)
 
 print('listening on', addr)
+stateis = "LED is ?"
 
 # Listen for connections
 while True:
