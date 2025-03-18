@@ -18,6 +18,9 @@ html = """<!DOCTYPE html>
     <head> <title>Pico W</title> </head>
     <body> <h1>Pico W</h1>
         <p>%s</p>
+        <a href="/light/off">Turn off</a>
+        <br>
+        <a href="/light/on">Turn on</a>
     </body>
 </html>
 """
