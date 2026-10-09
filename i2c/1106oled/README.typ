@@ -1,0 +1,34 @@
+
+= Using a SH1106-based OLED graphics display
+
+#let xrefstyle = [short]
+
+Display an image and text on I2C driven SH1106-based OLED graphics display such as the Pimoroni Breakout Garden 1.12" Mono OLED #link("https://shop.pimoroni.com/products/1-12-oled-breakout?variant=29421050757203").
+
+== Wiring information
+
+See @oled-wiring-diagram for wiring instructions.
+
+#figure(caption: [Wiring the OLED to Pico using I2C],
+  image("pico-and-oled.png", width: 75%)
+) <oled-wiring-diagram>
+
+== List of Files
+
+A list of files with descriptions of their function;
+
+/ i2c_1106oled_using_defaults.py: \ The example code.
+/ i2c_1106oled_with_freq.py: \ The example code, explicitly sets a frequency.
+/ sh1106.py: \ SH1106 Driver Obtained from #link("https://github.com/robert-hh/SH1106")
+
+== Bill of Materials
+
+#figure(
+    table(
+        columns: 3,
+        table.header([*Item*], [*Quantity*], [Details]),
+        [Breadboard], [1], [generic part],
+        [Raspberry Pi Pico], [1], [https://www.raspberrypi.com/products/raspberry-pi-pico/],
+        [Monochrome 128x128 I2C OLED Display], [1], [https://shop.pimoroni.com/products/1-12-oled-breakout?variant=29421050757203],
+  ), caption: [A list of materials required for the example]
+) <oled-bom-table>
